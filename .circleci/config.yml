@@ -64,7 +64,7 @@ jobs:
               --set Image.tag="${CIRCLE_SHA1}" \
               ./.deployment/chart \
               | kubectl apply -f -
-            kubectl rollout status deployment/cloud
+            kubectl rollout status deployment/host-app
 workflows:
   version: 2
   ultimate_pipeline:
