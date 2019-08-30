@@ -60,11 +60,11 @@ jobs:
           command: |
             helm template \
               --name="${PROJECT_NAME}" \
-              --set Image.name="eu.gcr.io/${GOOGLE_PROJECT_ID}/cloud" \
+              --set Image.name="eu.gcr.io/${GOOGLE_PROJECT_ID}/${PROJECT_NAME}" \
               --set Image.tag="${CIRCLE_SHA1}" \
               ./.deployment/chart \
               | kubectl apply -f -
-            kubectl rollout status deployment/cloud
+            kubectl rollout status deployment/${PROJECT_NAME}
 workflows:
   version: 2
   ultimate_pipeline:
