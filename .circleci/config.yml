@@ -24,8 +24,8 @@ jobs:
     docker:
       - image: google/cloud-sdk
     environment:
-      - PROJECT_NAME: "host-app"
-      - GOOGLE_PROJECT_ID: "our-service-138623"
+      - PROJECT_NAME: "Cloud"
+      - GOOGLE_PROJECT_ID: "spherical-treat-243615"
       - GOOGLE_COMPUTE_ZONE: "europe-west1-b"
       - GOOGLE_CLUSTER_NAME: "microfrontends"
     steps:
