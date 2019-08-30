@@ -26,7 +26,7 @@ jobs:
     environment:
       - PROJECT_NAME: "Cloud"
       - GOOGLE_PROJECT_ID: "spherical-treat-243615"
-      - GOOGLE_COMPUTE_ZONE: "europe-west1-b"
+      - GOOGLE_COMPUTE_ZONE: "europe-west2-b"
       - GOOGLE_CLUSTER_NAME: "microfrontends"
     steps:
       - checkout
