@@ -19,10 +19,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Run build
-          command: yarn build
-  experiment: 
-    type: approval
-    requires: build        
+          command: yarn build   
   deploy_k8s:
     docker:
       - image: google/cloud-sdk
@@ -73,7 +70,10 @@ workflows:
   ultimate_pipeline:
     jobs:
       - build
-      - experiment
+      - hold:
+          type: approval
+          requires:
+            - build
       - deploy_k8s:
           requires:
             - experiment
