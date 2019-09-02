@@ -70,7 +70,7 @@ workflows:
   ultimate_pipeline:
     jobs:
       - build
-      - hold:
+      - experiment:
           type: approval
           requires:
             - build
