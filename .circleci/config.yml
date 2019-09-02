@@ -74,8 +74,6 @@ workflows:
     jobs:
       - build
       - experiment
-          requires:
-          - build
       - deploy_k8s:
           requires:
             - experiment
