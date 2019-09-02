@@ -20,6 +20,9 @@ jobs:
       - run:
           name: Run build
           command: yarn build
+  experiment: 
+    type: approval
+    requires: build        
   deploy_k8s:
     docker:
       - image: google/cloud-sdk
@@ -70,9 +73,12 @@ workflows:
   ultimate_pipeline:
     jobs:
       - build
+      - experiment
+          requires:
+          - build
       - deploy_k8s:
           requires:
-            - build
+            - experiment
           filters:
             branches:
               only:
